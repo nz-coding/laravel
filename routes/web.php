@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Crud\AddStudentComponent;
+use App\Http\Livewire\Crud\EditStudentComponent;
 use App\Http\Livewire\Crud\IndexComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::get('/', function () {
 
 Route::get('students', IndexComponent::class)->name('students');
 Route::get('add-student', AddStudentComponent::class)->name('addStudent');
+Route::get('edit-student/{id}', EditStudentComponent::class)->name('editStudent');

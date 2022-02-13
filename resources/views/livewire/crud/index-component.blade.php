@@ -28,7 +28,9 @@
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->email }}</td>
                                             <td>{{ $student->phone }}</td>
-                                            <td></td>
+                                            <td>
+                                                <a href="{{ route('editStudent',['id'=>$student->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
