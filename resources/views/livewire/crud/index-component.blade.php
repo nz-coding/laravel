@@ -9,6 +9,13 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                @if (session()->has('message'))
+                                    <div class="alert alert-success text-center">{{ session('message') }}</div>
+                                @endif
+                            </div>
+                        </div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -30,6 +37,8 @@
                                             <td>{{ $student->phone }}</td>
                                             <td>
                                                 <a href="{{ route('editStudent',['id'=>$student->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
+
+                                                <a href="javascript:void(0)" wire:click="delete({{ $student->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
