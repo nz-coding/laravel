@@ -12,6 +12,11 @@
 
     @livewireStyles
 </head>
+<style>
+    body{
+        font-size: 14px;
+    }
+</style>
 <body>
     
     {{ $slot }}
