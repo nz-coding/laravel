@@ -29,15 +29,13 @@ class AddProductComponent extends Component
             'images' => 'required',
         ]);
 
-        $uniqID = Carbon::now()->timestamp . uniqid();
-
         $product = new Product();
         $product->title = $this->title;
-        $product->unique_id = $uniqID;
+        $product->save();
 
         foreach ($this->images as $key => $image) {
             $pimage = new ProductImages();
-            $pimage->product_unique_id = $uniqID;
+            $pimage->product_id = $product->id;
 
             $imageName = Carbon::now()->timestamp . $key . '.' . $this->images[$key]->extension();
             $this->images[$key]->storeAs('all', $imageName);
@@ -46,7 +44,9 @@ class AddProductComponent extends Component
             $pimage->save();
         }
 
-        $product->save();
+        $this->title = '';
+        $this->images = '';
+        
         session()->flash('message', 'Product added successfully');
     }
 

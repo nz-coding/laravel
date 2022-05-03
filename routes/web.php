@@ -6,7 +6,6 @@ use App\Http\Livewire\Crud\IndexComponent;
 use App\Http\Livewire\Product\AddProductComponent;
 use App\Http\Livewire\Product\EditProductComponent;
 use App\Http\Livewire\Product\ProductComponent;
-use App\Http\Livewire\Product\ProductsComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +30,4 @@ Route::get('edit-student/{id}', EditStudentComponent::class)->name('editStudent'
 
 Route::get('products', ProductComponent::class)->name('allProducts');
 Route::get('products/add', AddProductComponent::class)->name('addProducts');
-Route::get('products/edit/{id}', EditProductComponent::class)->name('editProduct');
+Route::get('products/edit/{id}', EditProductComponent::class)->name('editProducts');

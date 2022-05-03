@@ -35,7 +35,7 @@
                                             <td>{{ $product->title }}</td>
                                             <td style="text-align: center;">
                                                 @php
-                                                    $images = App\Models\ProductImages::where('product_unique_id', $product->unique_id)->get();
+                                                    $images = App\Models\ProductImages::where('product_id', $product->id)->get();
                                                 @endphp
 
                                                 @foreach ($images as $item)
@@ -43,11 +43,9 @@
                                                 @endforeach
                                             </td>
                                             <td style="text-align: center;">
-                                                <a href="{{ route('editProduct', ['id' => $product->id]) }}"
-                                                    class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
+                                                <a href="{{ route('editProducts', ['id'=>$product->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
 
-                                                <a href="javascript:void(0)" wire:click="delete({{ $product->id }})"
-                                                    class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
+                                                <a href="javascript:void(0)" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
