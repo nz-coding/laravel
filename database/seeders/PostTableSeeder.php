@@ -18,7 +18,7 @@ class PostTableSeeder extends Seeder
 
         $faker = Faker::create();
 
-        foreach(range(1,300) as $index){
+        foreach(range(1,10) as $index){
             DB::table('posts')->insert([
                 'title' => $faker->sentence(5),
                 'content' => $faker->paragraph(4),
