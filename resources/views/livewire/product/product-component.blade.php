@@ -45,7 +45,7 @@
                                             <td style="text-align: center;">
                                                 <a href="{{ route('editProducts', ['id'=>$product->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
 
-                                                <a href="javascript:void(0)" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
+                                                <a href="javascript:void(0)" class="btn btn-sm btn-danger" style="padding: 1px 8px;" wire:click.prevent="deleteProduct({{ $product->id }})">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
