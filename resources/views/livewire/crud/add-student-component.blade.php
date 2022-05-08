@@ -15,7 +15,7 @@
                         <form wire:submit.prevent="storeStudent">
                             <div class="form-group">
                                 <label for="student_id">Student ID</label>
-                                <input type="number" class="form-control" wire:model="student_id" autocomplete="off" />
+                                <input type="number" min="1000" max="9999" class="form-control" wire:model="student_id" autocomplete="off" />
                                 {{-- for validation --}}
                                 @error('student_id')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
@@ -24,7 +24,7 @@
 
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" wire:model="name" autocomplete="off" />
+                                <input type="text" maxlength="10" class="form-control" wire:model="name" autocomplete="off" />
                                 {{-- for validation --}}
                                 @error('name')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>
@@ -42,7 +42,7 @@
 
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="number" class="form-control" wire:model="phone" autocomplete="off" />
+                                <input type="number" min="01000000000" max="01999999999" class="form-control" wire:model="phone" autocomplete="off" />
                                 {{-- for validation --}}
                                 @error('phone')
                                     <span class="text-danger" style="font-size: 12.5px;">{{ $message }}</span>

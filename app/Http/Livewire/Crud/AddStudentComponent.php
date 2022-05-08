@@ -37,7 +37,8 @@ class AddStudentComponent extends Component
 
         $student->save();
 
-        session()->flash('message','Student has been added successfully');
+        // session()->flash('message','Student has been added successfully');
+        $this->dispatchBrowserEvent('success', ['message'=>'New student added successfully!']);
 
         $this->student_id = '';
         $this->name = '';

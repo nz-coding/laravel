@@ -38,7 +38,7 @@
                                             <td>
                                                 <a href="{{ route('editStudent',['id'=>$student->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
 
-                                                <a href="javascript:void(0)" wire:click="delete({{ $student->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
+                                                <a href="javascript:void(0)" wire:click="deleteConfirmation({{ $student->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -55,3 +55,15 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        window.addEventListener('studentDeleted', event => {
+            Swal.fire(
+                'Deleted!',
+                'Student has been deleted successfully.',
+                'success'
+            )
+        });
+    </script>
+@endpush
