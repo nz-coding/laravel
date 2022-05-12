@@ -7,26 +7,22 @@ use Livewire\Component;
 
 class IndexComponent extends Component
 {
-
     public $delete_id;
 
-    protected $listeners = ['deleteConfirmed'=>'deleteData'];
+    protected $listeners = ['deleteConfirmed'=>'deleteStudent'];
 
     public function deleteConfirmation($id)
     {
-        $student = Student::where('id', $id)->first();
-        $this->delete_id = $student->id;
-
-        $this->dispatchBrowserEvent('show_delete_confirmation');
+        $this->delete_id = $id;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
     }
 
-    public function deleteData()
+    public function deleteStudent()
     {
         $student = Student::where('id', $this->delete_id)->first();
         $student->delete();
 
         $this->dispatchBrowserEvent('studentDeleted');
-        $this->delete_id = '';
     }
 
     public function render()

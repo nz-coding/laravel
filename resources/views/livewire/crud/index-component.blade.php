@@ -38,7 +38,7 @@
                                             <td>
                                                 <a href="{{ route('editStudent',['id'=>$student->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
 
-                                                <a href="javascript:void(0)" wire:click="deleteConfirmation({{ $student->id }})" class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
+                                                <a href="javascript:void(0)" wire:click.prevent='deleteConfirmation({{ $student->id }})' class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

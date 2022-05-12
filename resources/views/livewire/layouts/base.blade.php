@@ -35,7 +35,6 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     {{-- Toastr Script for Livewire --}}
     <script>
         $(document).ready(function(){
@@ -58,9 +57,10 @@
         });
     </script>
 
-    {{-- Sweet Alert Scripts for Livewire --}}
+
+    {{-- Sweet Alert Delete Script --}}
     <script>
-        window.addEventListener('show_delete_confirmation', event => {
+        window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -68,12 +68,20 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Delete !'
+                confirmButtonText: 'Yes, Delete'
                 }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
-                }
+                    if (result.isConfirmed) {
+                        Livewire.emit('deleteConfirmed')
+                    }
             })
+        });
+
+        window.addEventListener('studentDeleted', event => {
+            Swal.fire(
+                'Deleted!',
+                'The student has been deleted.',
+                'success'
+            )
         });
     </script>
 
