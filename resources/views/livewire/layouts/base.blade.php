@@ -13,12 +13,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
-    {{-- summernote styles --}}
-    <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
-
-    {{-- summernote themes --}}
-    <link rel="stylesheet" href="{{ asset('assets/plugins/codemirror/codemirror.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/codemirror/theme/monokai.css') }}">
+    {{-- Summernote --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
     @livewireStyles
 </head>
@@ -43,14 +39,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     {{-- Summernote --}}
-    <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
-
-    <!-- Summernote Themes -->
-    <script src="{{ asset('assets/admin/plugins/codemirror/codemirror.js') }}"></script>
-    <script src="{{ asset('assets/admin/plugins/codemirror/mode/css/css.js') }}"></script>
-    <script src="{{ asset('assets/admin/plugins/codemirror/mode/xml/xml.js') }}"></script>
-    <script src="{{ asset('assets/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
     {{-- Toastr Script for Livewire --}}
     <script>

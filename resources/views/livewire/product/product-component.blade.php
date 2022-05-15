@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="row justify-content-center mt-5">
-            <div class="col-md-11">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title" style="float: left;">All Products</h5>
@@ -22,6 +22,7 @@
                                 <tr>
                                     <th style="text-align: center;">Product ID</th>
                                     <th>Title</th>
+                                    <th style="width: 40%;">Description</th>
                                     <th style="text-align: center;">Images</th>
                                     <th style="text-align: center;">Actions</th>
                                 </tr>
@@ -33,6 +34,7 @@
                                         <tr>
                                             <td style="text-align: center;">{{ $product->id }}</td>
                                             <td>{{ $product->title }}</td>
+                                            <td>{!! $product->description !!}</td>
                                             <td style="text-align: center;">
                                                 @php
                                                     $images = App\Models\ProductImages::where('product_id', $product->id)->get();
@@ -51,7 +53,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="5" style="text-align: center;">No products found!</td>
+                                        <td colspan="6" style="text-align: center;">No products found!</td>
                                     </tr>
                                 @endif
                             </tbody>

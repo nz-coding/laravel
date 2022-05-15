@@ -51,6 +51,7 @@ class AddProductComponent extends Component
         $this->images = '';
         
         session()->flash('message', 'Product added successfully');
+        return redirect()->route('allProducts');
     }
 
     public function render()

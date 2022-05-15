@@ -12,7 +12,7 @@ class EditProductComponent extends Component
 {
     use WithFileUploads;
     public $title, $images = [];
-    public $product_id, $description;
+    public $product_id;
 
     public function mount($id)
     {
@@ -59,6 +59,7 @@ class EditProductComponent extends Component
         $this->images = '';
         
         session()->flash('message', 'Product updated successfully');
+        return redirect()->route('allProducts');
     }
 
 

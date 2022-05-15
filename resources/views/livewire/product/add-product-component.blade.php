@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="row justify-content-center mt-5">
-            <div class="col-md-5">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-title" style="float: left;">Add New Product</h5>
@@ -32,14 +32,14 @@
 
                             <div class="form-group">
                                 <label for="">Description</label>
+                                
                                 <div wire:ignore>
-                                    <textarea name="" class="form-control" id="description" wire:model="description"></textarea>
+                                    <textarea class="form-control" id='description' wire:model='description'></textarea>
                                 </div>
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
 
                             <div class="form-group text-center">
                                 <button class="btn btn-sm btn-primary">Submit</button>
@@ -55,17 +55,17 @@
 @push('scripts')
     <script>
         $('#description').summernote({
+            placeholder: 'Enter description',
             height: 300,
-            width: '100%',
             toolbar: [
-                ['style', ['style', 'undo', 'redo']],
-                ['font', ['bold', 'underline', 'clear', 'fontsize', 'fontname']],
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['color', 'table']],
+                ['table', ['table']],
                 ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']],
+                ['view', ['fullscreen', 'codeview', 'help']]
             ],
-            placeholder: 'Post Content',
             callbacks: {
                 onChange: function(contents, $editable) {
                     @this.set('description', contents);
