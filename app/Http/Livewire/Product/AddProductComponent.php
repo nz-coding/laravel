@@ -12,13 +12,14 @@ class AddProductComponent extends Component
 {
     use WithFileUploads;
 
-    public $title, $images = [];
+    public $title, $images = [], $description;
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
             'title' => 'required',
             'images' => 'required',
+            'description' => 'required',
         ]);
     }
 
@@ -27,10 +28,12 @@ class AddProductComponent extends Component
         $this->validate([
             'title' => 'required',
             'images' => 'required',
+            'description' => 'required',
         ]);
 
         $product = new Product();
         $product->title = $this->title;
+        $product->description = $this->description;
         $product->save();
 
         foreach ($this->images as $key => $image) {

@@ -36,6 +36,17 @@
                                     <a href="#" wire:click.prevent='deleteImage({{ $pimage->id }})'><i class="fa fa-times text-danger mr-2"></i></a>
                                 @endforeach
                             </div>
+
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <div wire:ignore>
+                                    <textarea name="" class="form-control" id="description" wire:model="description"></textarea>
+                                </div>
+                                @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
                             <div class="form-group text-center">
                                 <button class="btn btn-sm btn-primary">Submit</button>
                             </div>
@@ -46,3 +57,29 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function(){
+            $('#description').summernote({
+                height: 300,
+                width: '100%',
+                toolbar: [
+                    ['style', ['style', 'undo', 'redo']],
+                    ['font', ['bold', 'underline', 'clear', 'fontsize', 'fontname']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['color', 'table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ],
+                placeholder: 'Post Content',
+                callbacks: {
+                    onChange: function(contents, $editable) {
+                        @this.set('description', contents);
+                    }
+                }
+            });
+        });
+        
+    </script>
+@endpush

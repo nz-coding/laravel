@@ -12,7 +12,7 @@ class EditProductComponent extends Component
 {
     use WithFileUploads;
     public $title, $images = [];
-    public $product_id;
+    public $product_id, $description;
 
     public function mount($id)
     {
@@ -20,12 +20,14 @@ class EditProductComponent extends Component
         
         $this->product_id = $product->id;
         $this->title = $product->title;
+        $this->description = $product->description;
     }
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
             'title' => 'required',
+            'description' => 'required',
         ]);
     }
 
@@ -33,10 +35,12 @@ class EditProductComponent extends Component
     {
         $this->validate([
             'title' => 'required',
+            'description' => 'required',
         ]);
 
         $product = Product::where('id', $this->product_id)->first();
         $product->title = $this->title;
+        $product->description = $this->description;
         $product->save();
 
         if($this->images != ''){
