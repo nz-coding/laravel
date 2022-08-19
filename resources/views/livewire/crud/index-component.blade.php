@@ -39,6 +39,10 @@
                                                 <a href="{{ route('editStudent',['id'=>$student->id]) }}" class="btn btn-sm btn-secondary" style="padding: 1px 8px;">Edit</a>
 
                                                 <a href="javascript:void(0)" wire:click.prevent='deleteConfirmation({{ $student->id }})' class="btn btn-sm btn-danger" style="padding: 1px 8px;">Delete</a>
+
+                                                <a href="javascript:void(0)" wire:click.prevent='sendMail("{{ $student->email }}")' class="btn btn-sm btn-dark" style="padding: 1px 8px;">
+                                                    {!! loadingState('sendMail("'.$student->email.'")', 'Send Mail') !!}
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Crud;
 
 use App\Models\Student;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class IndexComponent extends Component
@@ -23,6 +24,19 @@ class IndexComponent extends Component
         $student->delete();
 
         $this->dispatchBrowserEvent('studentDeleted');
+    }
+
+    public function sendMail($email)
+    {
+        $mailData['email'] = $email;
+        $mailData['subject'] = 'Mail Check';
+
+        Mail::send('emails.email-temp', $mailData, function($message) use($mailData) {
+            $message->to($mailData['email'])
+                ->subject($mailData['subject']);
+        });
+
+        $this->dispatchBrowserEvent('success', ['message'=>'Mail sent successfully']);
     }
 
     public function render()
